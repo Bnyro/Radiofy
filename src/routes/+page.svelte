@@ -96,7 +96,7 @@
     >
   </Navbar>
 
-  <section class="flex px-8">
+  <section class="flex pr-4">
     <div class="grow">
       <Card>
         <Block
@@ -113,7 +113,7 @@
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <img
               src="/replay_10.svg"
-              class="cursor-pointer h-20 w-20"
+              class="cursor-pointer h-15 w-15"
               style="filter: var(--filter);"
               alt=""
               on:click={() => seek(-10)}
@@ -121,7 +121,7 @@
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <img
               src={playing ? "/pause_circle.svg" : "/play_circle.svg"}
-              class="cursor-pointer h-20 w-20 mx-10"
+              class="cursor-pointer h-15 w-15 mx-10"
               style="filter: var(--filter);"
               alt=""
               on:click={togglePause}
@@ -129,7 +129,7 @@
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <img
               src="/forward_10.svg"
-              class="cursor-pointer h-20 w-20"
+              class="cursor-pointer h-15 w-15"
               style="filter: var(--filter);"
               alt=""
               on:click={() => seek(10)}
