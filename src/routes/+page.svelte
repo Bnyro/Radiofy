@@ -9,6 +9,7 @@
     ListInput,
     Range,
     Card,
+    Link,
   } from "konsta/svelte";
   import { onMount } from "svelte";
 
@@ -80,7 +81,20 @@
 </script>
 
 <Page>
-  <Navbar title="Radiofy" />
+  <Navbar title="Radiofy">
+    <Link
+      slot="right"
+      navbar
+      href="https://github.com/Bnyro/Radiofy"
+      target="_blank"
+      ><img
+        class="h-7 mr-2"
+        style="filter: var(--text-filter);"
+        src="/github.svg"
+        alt=""
+      /></Link
+    >
+  </Navbar>
 
   <section class="flex px-8">
     <div class="grow">

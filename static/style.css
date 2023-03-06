@@ -3,4 +3,6 @@
 :root {
   --filter: invert(61%) sepia(45%) saturate(2025%) hue-rotate(244deg)
     brightness(105%) contrast(101%);
+  --text-filter: invert(95%) sepia(6%) saturate(111%) hue-rotate(182deg)
+    brightness(98%) contrast(92%);
 }
