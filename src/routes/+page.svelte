@@ -96,24 +96,24 @@
     >
   </Navbar>
 
-  <section class="flex pr-4">
-    <div class="grow">
+  <section class="flex flex-col lg:pr-4 lg:flex-row">
+    <div class="lg:flex-[3]">
       <Card>
         <Block
-          class="h-[80vh] flex flex-col justify-center items-center rounded-xl"
+          class="h-[80vh] flex flex-col justify-center items-center rounded-xl py-5"
         >
           <img
             src={current?.favicon ?? "/headphones.svg"}
             alt="Station favicon"
-            class="w-[25%] h-auto aspect-square rounded-full hy-10 mb-5"
+            class="grow h-auto aspect-square rounded-full hy-10 mb-5"
             style={current?.favicon ? "" : "filter: var(--filter);"}
           />
           <h1 class="text-3xl my-5">{current?.name ?? "Not active"}</h1>
-          <div class="flex my-10">
+          <div class="flex my-10 w-full justify-center gap-[10%] lg:gap-[5%]">
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <img
               src="/replay_10.svg"
-              class="cursor-pointer h-15 w-15"
+              class="cursor-pointer w-10 lg:w-15"
               style="filter: var(--filter);"
               alt=""
               on:click={() => seek(-10)}
@@ -121,7 +121,7 @@
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <img
               src={playing ? "/pause_circle.svg" : "/play_circle.svg"}
-              class="cursor-pointer h-15 w-15 mx-10"
+              class="cursor-pointer w-10 lg:w-15"
               style="filter: var(--filter);"
               alt=""
               on:click={togglePause}
@@ -129,7 +129,7 @@
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <img
               src="/forward_10.svg"
-              class="cursor-pointer h-15 w-15"
+              class="cursor-pointer w-10 lg:w-15"
               style="filter: var(--filter);"
               alt=""
               on:click={() => seek(10)}
@@ -139,7 +139,7 @@
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <img
               src="/volume_off.svg"
-              class="cursor-pointer h-10 w-10"
+              class="cursor-pointer w-[15%]"
               style="filter: var(--filter);"
               alt=""
               on:click={() => {
@@ -160,7 +160,7 @@
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <img
               src="/volume_up.svg"
-              class="cursor-pointer h-10 w-10"
+              class="cursor-pointer w-[15%]"
               style="filter: var(--filter);"
               alt=""
               on:click={() => {
@@ -173,7 +173,7 @@
       </Card>
     </div>
 
-    <div class="w-[40%]">
+    <div class="lg:flex-[2]">
       <List>
         <ListInput
           outline
@@ -185,7 +185,7 @@
           clearButton={searchQuery.length > 0}
         />
       </List>
-      <List class="max-h-[75vh] overflow-scroll">
+      <List class="lg:max-h-[75vh] lg:overflow-y-scroll">
         {#each results as result}
           <ListItem title={result.name} href={result.homepage} />
           <Button class="mx-4 w-max" onClick={() => playAudio(result)}
