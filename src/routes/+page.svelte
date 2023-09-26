@@ -49,11 +49,15 @@
     fetchSearch();
   };
 
+  const upgradeUrl = (urlstr) => {
+    const url = new URL(urlstr);
+    url.protocol = "https";
+    return url.toString();
+  }
+
   const playAudio = (result) => {
     if (player) player.pause();
-    const url = new URL(result.url);
-    url.protocol = "https";
-    player = new Audio(url.toString());
+    player = new Audio(upgradeUrl(result.url));
     player.play();
     if (result.favicon == "") result.favicon = null;
     current = result;
@@ -105,7 +109,7 @@
           class="h-[80vh] flex flex-col justify-center items-center rounded-xl py-5"
         >
           <img
-            src={current?.favicon ?? "/headphones.svg"}
+            src={current?.favicon ? upgradeUrl(current?.favicon) : "/headphones.svg"}
             alt="Station favicon"
             class="grow h-auto aspect-square rounded-full hy-10 mb-5"
             style={current?.favicon ? "" : "filter: var(--filter);"}
