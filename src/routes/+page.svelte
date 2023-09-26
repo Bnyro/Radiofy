@@ -51,7 +51,9 @@
 
   const playAudio = (result) => {
     if (player) player.pause();
-    player = new Audio(result.url);
+    const url = new URL(result.url);
+    url.protocol = "https";
+    player = new Audio(url.toString());
     player.play();
     if (result.favicon == "") result.favicon = null;
     current = result;
