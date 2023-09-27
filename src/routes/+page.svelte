@@ -28,7 +28,7 @@
 
   const fetchSearch = async () => {
     const url = searchQuery
-      ? `${apiUrl}/json/stations/byname/${searchQuery}`
+      ? `${apiUrl}/json/stations/search?name=${searchQuery}&hidebroken=true&order=votes&reverse=true`
       : `${apiUrl}/json/stations/topclick`;
     const response = await fetch(url);
     let res = await response.json();
